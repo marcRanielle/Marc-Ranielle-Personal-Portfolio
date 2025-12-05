@@ -19,6 +19,7 @@ import Logo from "./assets/image/img/logo.jpg";
 import Project1 from "./assets/image/img/countdown.jpeg";
 import Project2 from "./assets/image/img/qr-generator.jpeg";
 import Project3 from "./assets/image/img/agriconnect-app.png";
+import Resume from "./assets/Resume.pdf";
 import emailjs from "emailjs-com";
 import {
   SiHtml5,
@@ -32,14 +33,14 @@ import {
 } from "react-icons/si";
 
 const skillIcons = {
-  "HTML": <SiHtml5 className="skill-icon" />,
-  "CSS": <SiCss3 className="skill-icon" />,
+  HTML: <SiHtml5 className="skill-icon" />,
+  CSS: <SiCss3 className="skill-icon" />,
   "Tailwind CSS": <SiTailwindcss className="skill-icon" />,
-  "Javascript": <SiJavascript className="skill-icon" />,
-  "React": <SiReact className="skill-icon" />,
-  "Dart": <SiDart className="skill-icon" />,
-  "Flutter": <SiFlutter className="skill-icon" />,
-  "Firebase": <SiFirebase className="skill-icon" />,
+  Javascript: <SiJavascript className="skill-icon" />,
+  React: <SiReact className="skill-icon" />,
+  Dart: <SiDart className="skill-icon" />,
+  Flutter: <SiFlutter className="skill-icon" />,
+  Firebase: <SiFirebase className="skill-icon" />,
 };
 
 const SKILLS = [
@@ -71,7 +72,7 @@ const PROJECTS = [
     tech: ["HTML", "CSS", "Javascript", "Tailwind CSS"],
     image: Project1,
     github: "https://github.com/marcRanielle/MarcNavy-Countdown.git",
-    website: "marcnavy-countdown.vercel.app",
+    website: "https://marcnavy-countdown.vercel.app/",
   },
   {
     title: "MarcNavy QR Generator",
@@ -80,7 +81,7 @@ const PROJECTS = [
     tech: ["React", "Javascript", "CSS", "Tailwind CSS"],
     image: Project2,
     github: "https://github.com/marcRanielle/MarcNavy-QR-Generator.git",
-    website: "marcnavy-qr-gen.vercel.app",
+    website: "https://marcnavy-qr-generator.vercel.app/",
   },
   {
     title: "AgriConnect Mobile Application",
@@ -89,7 +90,8 @@ const PROJECTS = [
     tech: ["Flutter", "Dart", "Firebase"],
     image: Project3,
     github: "https://github.com/agriconnectpsu-capstone/Team-Collaboration.git",
-    website: "https://drive.google.com/drive/folders/1IbyScQp6oi4TuyUpdQsj7VB-F_cy9Lxy?fbclid=IwY2xjawOfreFleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAEwAAEeDYI2fOLdji69O5kxSuWg9-DJCVcbKeQOKWlZKU6d6c3mEXbQa0qUJPNpVF8_aem_J2EKvahRF_pJpCPW67CepA",
+    website:
+      "https://drive.google.com/drive/folders/1IbyScQp6oi4TuyUpdQsj7VB-F_cy9Lxy?fbclid=IwY2xjawOfreFleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAEwAAEeDYI2fOLdji69O5kxSuWg9-DJCVcbKeQOKWlZKU6d6c3mEXbQa0qUJPNpVF8_aem_J2EKvahRF_pJpCPW67CepA",
   },
 ];
 
@@ -165,7 +167,11 @@ const Hero = () => (
             Developing accessible apps for modern web experiences.
           </p>
         </div>
-        <a href="/resume.pdf" download className="hero-btn">
+        <a
+          href={Resume}
+          download="Marc_Rabanillo_Resume.pdf"
+          className="hero-btn"
+        >
           Download My Resume <Download className="hero-btn-icon" />
         </a>
       </div>
