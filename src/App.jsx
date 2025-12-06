@@ -30,7 +30,11 @@ import {
   SiFirebase,
   SiDart,
   SiFlutter,
+  SiAndroidstudio,
 } from "react-icons/si";
+import { VscCode } from "react-icons/vsc";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const skillIcons = {
   HTML: <SiHtml5 className="skill-icon" />,
@@ -41,6 +45,8 @@ const skillIcons = {
   Dart: <SiDart className="skill-icon" />,
   Flutter: <SiFlutter className="skill-icon" />,
   Firebase: <SiFirebase className="skill-icon" />,
+  "VS Code": <VscCode className="skill-icon" />,
+  "Android Studio": <SiAndroidstudio className="skill-icon" />,
 };
 
 const SKILLS = [
@@ -52,6 +58,8 @@ const SKILLS = [
   "Dart",
   "Flutter",
   "Firebase",
+  "VS Code",
+  "Android Studio",
 ];
 
 const EDUCATION = [
@@ -162,7 +170,7 @@ const Hero = () => (
           Marc Ranielle <br /> Rabanillo
         </h1>
         <div className="hero-sub">
-          <h2 className="hero-tagline">Web Developer</h2>
+          <h2 className="hero-tagline typing">Web and Application Developer</h2>
           <p className="hero-highlight">
             Developing accessible apps for modern web experiences.
           </p>
@@ -186,7 +194,7 @@ const Hero = () => (
 );
 
 const Skills = () => (
-  <section id="skills" className="skills">
+  <section id="skills" className="skills" data-aos="fade-up">
     <div className="container">
       <SectionTitle>Skills and Tools</SectionTitle>
 
@@ -195,6 +203,8 @@ const Skills = () => (
           <div
             key={index}
             className="skill-card flex flex-col items-center gap-2 p-4 bg-[#1a1a1a] rounded-lg shadow-md"
+            data-aos="fade-up"
+            data-aos-delay={index * 100} // stagger effect for smooth transition
           >
             {skillIcons[skill]}
             <p className="skill-text text-center">{skill}</p>
@@ -206,12 +216,17 @@ const Skills = () => (
 );
 
 const Education = () => (
-  <section id="education" className="education">
+  <section id="education" className="education" data-aos="fade-up">
     <div className="container">
       <SectionTitle>Education</SectionTitle>
       <div className="edu-list">
         {EDUCATION.map((edu, index) => (
-          <div key={index} className="edu-card">
+          <div
+            key={index}
+            className="edu-card"
+            data-aos="fade-up"
+            data-aos-delay={index * 150} // stagger effect for smooth transition
+          >
             <div className="edu-header">
               <h3 className="edu-title">{edu.title}</h3>
               <p className="edu-years">{edu.years}</p>
@@ -232,7 +247,7 @@ const Projects = () => {
   const closeImage = () => setPreviewImage(null);
 
   return (
-    <section id="projects" className="projects">
+    <section id="projects" className="projects" data-aos="fade-up">
       <div className="container">
         <SectionTitle>Projects</SectionTitle>
 
@@ -245,38 +260,42 @@ const Projects = () => {
               src={previewImage}
               alt="Preview"
               id="previewImage"
-              className=""
             />
           </div>
         )}
 
         <div className="project-grid">
           {PROJECTS.map((project, index) => (
-            <div key={index} className="project-card">
+            <div
+              key={index}
+              className="project-card bg-[#1a1a1a] rounded-lg shadow-md"
+              data-aos="zoom-in"
+              data-aos-delay={index * 100}
+            >
               <img
                 src={project.image}
                 alt={project.title}
-                className="project-image cursor-pointer"
+                className="project-image cursor-pointer rounded-md"
                 onClick={() => openImage(project.image)}
               />
 
-              <h3 className="project-title">{project.title}</h3>
+              <h3 className="project-title mt-2">{project.title}</h3>
               <p className="project-desc">{project.description}</p>
 
-              <div className="project-tags">
+              <div className="project-tags flex flex-wrap gap-2 mt-2">
                 {project.tech.map((tech, i) => (
-                  <span key={i} className="project-tag">
+                  <span key={i} className="project-tag px-2 py-1 rounded bg-gray-700 text-sm">
                     {tech}
                   </span>
                 ))}
               </div>
 
-              <div className="project-links">
+              <div className="project-links flex gap-4 mt-3">
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="icon-btn flex items-center gap-2 underline-none decoration-none"
+                  className="icon-btn flex items-center gap-2 px-3 py-1 bg-[#111] rounded hover:bg-[#0f61be] transition"
                 >
                   <Github size={18} />
                   <span>View GitHub</span>
@@ -286,7 +305,7 @@ const Projects = () => {
                   href={project.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="icon-btn flex items-center gap-2 underline-none decoration-none"
+                  className="icon-btn flex items-center gap-2 px-3 py-1 bg-[#111] rounded hover:bg-[#0f61be] transition"
                 >
                   <Globe size={18} />
                   <span>View</span>
@@ -325,10 +344,10 @@ const Contacts = () => {
   };
 
   return (
-    <section id="contacts" className="contacts">
+    <section id="contacts" className="contacts" data-aos="fade-up">
       <div className="container">
         <SectionTitle>Contact Me</SectionTitle>
-        <div className="contact-center">
+        <div className="contact-center" data-aos="fade-up" data-aos-delay={50}>
           <h3 className="contact-heading">Let's Connect!</h3>
           <p className="contact-desc">
             I'm excited to gain experience and contribute to meaningful
@@ -411,6 +430,14 @@ const App = () => {
   useEffect(() => {
     document.body.className = theme === "dark" ? "dark-theme" : "light-theme";
   }, [theme]);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800, 
+      once: false,  
+    mirror: true,
+    });
+  }, []);
 
   return (
     <div className="app">
