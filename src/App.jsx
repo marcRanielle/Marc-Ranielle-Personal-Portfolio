@@ -2,11 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import {
   Moon,
   Sun,
-  Code,
-  GraduationCap,
-  Briefcase,
   Mail,
-  Send,
   Github,
   Linkedin,
   Facebook,
@@ -14,11 +10,12 @@ import {
   Download,
   Globe,
 } from "lucide-react";
-import Profile from "./assets/image/img/profile.jpg";
+import Profile from "./assets/image/img/profile.png";
 import Logo from "./assets/image/img/logo.jpg";
 import Project1 from "./assets/image/img/countdown.jpeg";
 import Project2 from "./assets/image/img/qr-generator.jpeg";
 import Project3 from "./assets/image/img/agriconnect-app.png";
+import Project4 from "./assets/image/img/agriconnect-landing.png";
 import Resume from "./assets/Resume.pdf";
 import emailjs from "emailjs-com";
 import {
@@ -82,10 +79,20 @@ const PROJECTS = [
     github: "https://github.com/marcRanielle/MarcNavy-Countdown.git",
     website: "https://marcnavy-countdown.vercel.app/",
   },
+
+  {
+    title: "AgriConnect Landing Page",
+    description:
+      "Part of our capstone project, this landing page was designed for the AgriConnect mobile app to showcase its features and highlight its benefits.",
+    tech: ["React", "CSS", "Tailwind CSS", "Javascript"],
+    image: Project4,
+    github: "https://github.com/marcRanielle/AgriConnect-Landing-Page.git",
+    website: "https://agriconnect-app-six.vercel.app/",
+  },
   {
     title: "MarcNavy QR Generator",
     description:
-      "Designed for simplicity and modern data sharing. Created with a balance of creativity and technical precision.",
+      "web-based QR code generator that allows users to generate scannable codes for URLs, text, and email, enhancing accessibility and sharing.",
     tech: ["React", "Javascript", "CSS", "Tailwind CSS"],
     image: Project2,
     github: "https://github.com/marcRanielle/MarcNavy-QR-Generator.git",
@@ -94,7 +101,7 @@ const PROJECTS = [
   {
     title: "AgriConnect Mobile Application",
     description:
-      "A mobile app linking farmers and businesses in Western Pangasinan.",
+      "Developed as a capstone project to directly connect farmers and businesses, facilitating efficient communication and transactions.",
     tech: ["Flutter", "Dart", "Firebase"],
     image: Project3,
     github: "https://github.com/agriconnectpsu-capstone/Team-Collaboration.git",
@@ -177,7 +184,7 @@ const Hero = () => (
         </div>
         <a
           href={Resume}
-          download="Marc_Rabanillo_Resume.pdf"
+          download="Marc_Ranielle_Rabanillo_Resume.pdf"
           className="hero-btn"
         >
           Download My Resume <Download className="hero-btn-icon" />
@@ -241,74 +248,56 @@ const Education = () => (
 );
 
 const Projects = () => {
-  const [previewImage, setPreviewImage] = useState(null);
-
-  const openImage = (src) => setPreviewImage(src);
-  const closeImage = () => setPreviewImage(null);
-
   return (
     <section id="projects" className="projects" data-aos="fade-up">
       <div className="container">
         <SectionTitle>Projects</SectionTitle>
 
-        {previewImage && (
-          <div
-            className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4"
-            onClick={closeImage}
-          >
-            <img
-              src={previewImage}
-              alt="Preview"
-              id="previewImage"
-            />
-          </div>
-        )}
-
+        {/* GRID 2×2 FIXED */}
         <div className="project-grid">
           {PROJECTS.map((project, index) => (
             <div
               key={index}
-              className="project-card bg-[#1a1a1a] rounded-lg shadow-md"
-              data-aos="zoom-in"
-              data-aos-delay={index * 100}
+              className="project-card"
+              data-aos="fade-up"
+              data-aos-delay={index * 120}
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="project-image cursor-pointer rounded-md"
-                onClick={() => openImage(project.image)}
-              />
+              <div className="project-image-wrapper">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="project-image"
+                />
+              </div>
 
-              <h3 className="project-title mt-2">{project.title}</h3>
+              <h3 className="project-title">{project.title}</h3>
               <p className="project-desc">{project.description}</p>
 
-              <div className="project-tags flex flex-wrap gap-2 mt-2">
+              <div className="project-tags">
                 {project.tech.map((tech, i) => (
-                  <span key={i} className="project-tag px-2 py-1 rounded bg-gray-700 text-sm">
+                  <span key={i} className="project-tag">
                     {tech}
                   </span>
                 ))}
               </div>
 
-              <div className="project-links flex gap-4 mt-3">
+              <div className="project-links">
                 <a
                   href={project.github}
                   target="_blank"
+                  className="icon-btn"
                   rel="noopener noreferrer"
-                  className="icon-btn flex items-center gap-2 px-3 py-1 bg-[#111] rounded hover:bg-[#0f61be] transition"
                 >
-                  <Github size={18} />
-                  <span>View GitHub</span>
+                  <Github size={18} /> Github
                 </a>
 
                 <a
                   href={project.website}
                   target="_blank"
+                  className="icon-btn"
                   rel="noopener noreferrer"
-                  className="icon-btn flex items-center gap-2 px-3 py-1 bg-[#111] rounded hover:bg-[#0f61be] transition"
                 >
-                  <Globe size={18} />
-                  <span>View</span>
+                  <Globe size={18} /> View
                 </a>
               </div>
             </div>
@@ -421,7 +410,7 @@ const Footer = () => (
 );
 
 const App = () => {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
 
   const toggleTheme = useCallback(() => {
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
@@ -433,9 +422,9 @@ const App = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 800, 
-      once: false,  
-    mirror: true,
+      duration: 800,
+      once: false,
+      mirror: true,
     });
   }, []);
 
