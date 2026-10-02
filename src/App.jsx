@@ -172,31 +172,140 @@ const Navbar = ({ toggleTheme, theme }) => {
 const Hero = () => (
   <section id="hero" className="hero">
     <div className="hero-grid">
-      <div>
-        <h1 className="hero-title">
-          Marc Ranielle <br /> Rabanillo
-        </h1>
-        <div className="hero-sub">
-          <h2 className="hero-tagline typing">Web and Application Developer</h2>
-          <p className="hero-highlight">
-            Developing accessible apps for modern web experiences.
-          </p>
-        </div>
-        <a
-          href={Resume}
-          download="Marc_Ranielle_Rabanillo_Resume.pdf"
-          className="hero-btn"
-        >
-          Download My Resume <Download className="hero-btn-icon" />
-        </a>
-      </div>
-      <div className="hero-img-wrapper">
-        <div className="hero-img-bg"></div>
-        <img src={Profile} alt="Developer" className="hero-img" />
 
-        <p className="hero-outline-text">DEVELOPER</p>
+      {/* LEFT SIDE — INTRODUCTION */}
+      <div className="hero-content">
+
+        <div className="hero-status">
+          <span className="status-dot"></span>
+          SYSTEM STATUS: ONLINE
+        </div>
+
+        <p className="hero-kicker">
+          // INITIALIZING PORTFOLIO
+        </p>
+
+        <h1 className="hero-title">
+          MARC RANIELLE
+          <span>RABANILLO</span>
+        </h1>
+
+        <div className="hero-role">
+          <span>&gt;</span> JUNIOR SOFTWARE DEVELOPER
+        </div>
+
+        <div className="hero-specialization">
+          WEB &amp; MOBILE APPLICATION DEVELOPMENT
+        </div>
+
+        <p className="hero-description">
+          IT graduate specializing in Web and Mobile Technologies, with
+          hands-on experience building applications, working with databases,
+          and testing and deploying software systems.
+        </p>
+
+        <div className="hero-actions">
+          <a href="#projects" className="hero-btn primary">
+            <span>&gt;</span>
+            VIEW PROJECTS
+          </a>
+
+          <a
+            href={Resume}
+            download="Marc_Ranielle_Rabanillo_Resume.pdf"
+            className="hero-btn secondary"
+          >
+            <Download size={18} />
+            DOWNLOAD RESUME
+          </a>
+        </div>
+
+        <div className="hero-socials">
+          <a
+            href="https://github.com/marcRanielle"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Github size={18} />
+            GITHUB
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/marc-ranielle-rabanillo-55b9a5359"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Linkedin size={18} />
+            LINKEDIN
+          </a>
+        </div>
+
       </div>
+
+      {/* RIGHT SIDE — PROFILE TERMINAL */}
+      <div className="hero-profile">
+
+        <div className="profile-terminal">
+
+          <div className="terminal-header">
+            <div className="terminal-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <p>PROFILE.EXE</p>
+
+            <span className="terminal-id">
+              001
+            </span>
+          </div>
+
+          <div className="profile-image-container">
+            <img
+              src={Profile}
+              alt="Marc Ranielle Rabanillo"
+              className="hero-img"
+            />
+
+            <div className="image-scanline"></div>
+          </div>
+
+          <div className="profile-info">
+            <div>
+              <span>USER</span>
+              <strong>M.RABANILLO</strong>
+            </div>
+
+            <div>
+              <span>FIELD</span>
+              <strong>SOFTWARE DEV</strong>
+            </div>
+
+            <div>
+              <span>STACK</span>
+              <strong>WEB / MOBILE</strong>
+            </div>
+          </div>
+
+        </div>
+
+        <p className="hero-outline-text">
+          DEVELOPER // 001
+        </p>
+
+      </div>
+
     </div>
+
+    {/* RETRO TECH FOOTER */}
+    <div className="hero-system-bar">
+      <span>01 // WEB</span>
+      <span>02 // MOBILE</span>
+      <span>03 // SOFTWARE</span>
+      <span>04 // DEVELOPMENT</span>
+    </div>
+
   </section>
 );
 
