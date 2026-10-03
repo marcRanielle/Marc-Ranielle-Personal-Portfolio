@@ -309,6 +309,50 @@ const Hero = () => (
   </section>
 );
 
+const About = () => (
+  <section id="about" className="about" data-aos="fade-up">
+    <div className="container">
+      <div className="about-header">
+        <p className="about-kicker">// ABOUT_ME.TXT</p>
+        <h2 className="section-title">About Me</h2>
+      </div>
+
+      <div className="about-terminal">
+        <div className="about-terminal-header">
+          <span>ABOUT.EXE</span>
+          <span>001</span>
+        </div>
+
+        <div className="about-content">
+          <div className="about-label">
+            <span>USER</span>
+            <strong>MARC RANIELLE RABANILLO</strong>
+          </div>
+
+          <p>
+            I'm a Bachelor of Science in Information Technology graduate
+            specializing in Web and Mobile Technologies. I have hands-on
+            experience developing web and mobile applications, working with
+            databases, and testing, debugging, and deploying software systems.
+          </p>
+
+          <p>
+            My projects include web applications and a Flutter-based mobile
+            application developed as part of my capstone project. I enjoy
+            building practical software solutions and continuously improving
+            my development skills.
+          </p>
+
+          <div className="about-status">
+            <span>FIELD</span>
+            <strong>WEB / MOBILE / SOFTWARE</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 const Skills = () => (
   <section id="skills" className="skills" data-aos="fade-up">
     <div className="container">
@@ -542,6 +586,7 @@ const App = () => {
       <Navbar toggleTheme={toggleTheme} theme={theme} />
       <main>
         <Hero />
+        <About />
         <Skills />
         <Education />
         <Projects />
