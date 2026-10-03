@@ -548,14 +548,71 @@ const Education = () => (
 );
 
 const Projects = () => {
+  const featuredProject = PROJECTS[0];
+  const secondaryProjects = PROJECTS.slice(1);
+
   return (
     <section id="projects" className="projects" data-aos="fade-up">
       <div className="container">
         <SectionTitle>Projects</SectionTitle>
 
-        {/* GRID 2×2 FIXED */}
-        <div className="project-grid">
-          {PROJECTS.map((project, index) => (
+        {/* FEATURED PROJECT */}
+        <div
+          className="project-featured"
+          data-aos="fade-up"
+        >
+          <div className="project-featured-image">
+            <img
+              src={featuredProject.image}
+              alt={featuredProject.title}
+              className="project-image"
+            />
+          </div>
+
+          <div className="project-featured-content">
+            <p className="project-type">{featuredProject.type}</p>
+
+            <h3 className="project-title">
+              {featuredProject.title}
+            </h3>
+
+            <p className="project-desc">
+              {featuredProject.description}
+            </p>
+
+            <div className="project-tags">
+              {featuredProject.tech.map((tech, i) => (
+                <span key={i} className="project-tag">
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <div className="project-links">
+              <a
+                href={featuredProject.github}
+                target="_blank"
+                className="icon-btn"
+                rel="noopener noreferrer"
+              >
+                <Github size={18} /> Github
+              </a>
+
+              <a
+                href={featuredProject.website}
+                target="_blank"
+                className="icon-btn"
+                rel="noopener noreferrer"
+              >
+                <Globe size={18} /> View
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* OTHER PROJECTS */}
+        <div className="project-secondary-grid">
+          {secondaryProjects.map((project, index) => (
             <div
               key={index}
               className="project-card"
@@ -571,8 +628,14 @@ const Projects = () => {
               </div>
 
               <p className="project-type">{project.type}</p>
-              <h3 className="project-title">{project.title}</h3>
-              <p className="project-desc">{project.description}</p>
+
+              <h3 className="project-title">
+                {project.title}
+              </h3>
+
+              <p className="project-desc">
+                {project.description}
+              </p>
 
               <div className="project-tags">
                 {project.tech.map((tech, i) => (
