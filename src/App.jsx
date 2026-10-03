@@ -28,6 +28,7 @@ import {
   SiDart,
   SiFlutter,
   SiAndroidstudio,
+  SiMongodb,
 } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
 import AOS from "aos";
@@ -36,15 +37,90 @@ import "aos/dist/aos.css";
 const skillIcons = {
   HTML: <SiHtml5 className="skill-icon" />,
   CSS: <SiCss3 className="skill-icon" />,
-  "Tailwind CSS": <SiTailwindcss className="skill-icon" />,
-  Javascript: <SiJavascript className="skill-icon" />,
+  JavaScript: <SiJavascript className="skill-icon" />,
   React: <SiReact className="skill-icon" />,
+  "Tailwind CSS": <SiTailwindcss className="skill-icon" />,
+  PHP: <span className="skill-fallback-icon">PHP</span>,
+
   Dart: <SiDart className="skill-icon" />,
   Flutter: <SiFlutter className="skill-icon" />,
+  "Android Studio": <span className="skill-fallback-icon">AS</span>,
+
   Firebase: <SiFirebase className="skill-icon" />,
-  "VS Code": <VscCode className="skill-icon" />,
-  "Android Studio": <SiAndroidstudio className="skill-icon" />,
+  MySQL: <span className="skill-fallback-icon">SQL</span>,
+  MongoDB: <SiMongodb className="skill-icon" />,
+  XAMPP: <span className="skill-fallback-icon">X</span>,
+
+  "VS Code": <Vscode className="skill-icon" />,
+  Git: <span className="skill-fallback-icon">GIT</span>,
+  GitHub: <Github className="skill-icon" />,
+
+  "Functional Testing": <span className="skill-fallback-icon">FT</span>,
+  "System Testing": <span className="skill-fallback-icon">ST</span>,
+  "Bug Identification": <span className="skill-fallback-icon">BUG</span>,
+  Debugging: <span className="skill-fallback-icon">DBG</span>,
+  Retesting: <span className="skill-fallback-icon">RT</span>,
+  "System Implementation": <span className="skill-fallback-icon">IMP</span>,
+  Deployment: <span className="skill-fallback-icon">DEP</span>,
+  "Technical Documentation": <span className="skill-fallback-icon">DOC</span>,
 };
+
+const SKILL_GROUPS = [
+  {
+    title: "WEB DEVELOPMENT",
+    code: "WEB_01",
+    skills: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Tailwind CSS",
+      "PHP",
+    ],
+  },
+  {
+    title: "MOBILE DEVELOPMENT",
+    code: "MOB_02",
+    skills: [
+      "Dart",
+      "Flutter",
+      "Android Studio",
+    ],
+  },
+  {
+    title: "BACKEND & DATABASES",
+    code: "DB_03",
+    skills: [
+      "Firebase",
+      "MySQL",
+      "MongoDB",
+      "XAMPP",
+    ],
+  },
+  {
+    title: "TOOLS & WORKFLOW",
+    code: "DEV_04",
+    skills: [
+      "VS Code",
+      "Git",
+      "GitHub",
+    ],
+  },
+  {
+    title: "TESTING & SOFTWARE",
+    code: "QA_05",
+    skills: [
+      "Functional Testing",
+      "System Testing",
+      "Bug Identification",
+      "Debugging",
+      "Retesting",
+      "System Implementation",
+      "Deployment",
+      "Technical Documentation",
+    ],
+  },
+];
 
 const SKILLS = [
   "HTML",
@@ -356,18 +432,45 @@ const About = () => (
 const Skills = () => (
   <section id="skills" className="skills" data-aos="fade-up">
     <div className="container">
-      <SectionTitle>Skills and Tools</SectionTitle>
+      <p className="skills-kicker">// SYSTEM_CAPABILITIES</p>
 
-      <div className="skill-grid grid grid-cols-2 md:grid-cols-4 gap-6">
-        {SKILLS.map((skill, index) => (
+      <SectionTitle>Skills & Tools</SectionTitle>
+
+      <p className="skills-intro">
+        Technologies and software development skills I use for building,
+        testing, deploying, and maintaining web and mobile applications.
+      </p>
+
+      <div className="skills-groups">
+        {SKILL_GROUPS.map((group, index) => (
           <div
-            key={index}
-            className="skill-card flex flex-col items-center gap-2 p-4 bg-[#1a1a1a] rounded-lg shadow-md"
+            className="skill-group"
+            key={group.code}
             data-aos="fade-up"
-            data-aos-delay={index * 100} // stagger effect for smooth transition
+            data-aos-delay={index * 100}
           >
-            {skillIcons[skill]}
-            <p className="skill-text text-center">{skill}</p>
+            <div className="skill-group-header">
+              <div>
+                <span className="skill-group-code">{group.code}</span>
+                <h3>{group.title}</h3>
+              </div>
+
+              <span className="skill-group-status">READY</span>
+            </div>
+
+            <div className="skill-chip-grid">
+              {group.skills.map((skill) => (
+                <div className="skill-chip" key={skill}>
+                  <div className="skill-chip-icon">
+                    {skillIcons[skill] || (
+                      <span className="skill-fallback-icon">&gt;_</span>
+                    )}
+                  </div>
+
+                  <span>{skill}</span>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
