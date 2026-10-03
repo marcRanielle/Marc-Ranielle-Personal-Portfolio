@@ -385,9 +385,9 @@ const Experience = () => (
       <div className="experience-card">
         <div className="experience-top">
           <div>
-            <p className="experience-type">INTERNSHIP / TECHNICAL SUPPORT</p>
+            <p className="experience-type">INTERNSHIP</p>
             <h3 className="experience-title">
-              Technical Support Intern
+              Technical Support
             </h3>
             <p className="experience-company">
               Vertex Technologies Corporation
@@ -426,15 +426,6 @@ const Experience = () => (
               troubleshooting activities.
             </li>
           </ul>
-
-          <div className="experience-tech">
-            <span>SFA</span>
-            <span>Tailscale</span>
-            <span>Migle</span>
-            <span>VOS</span>
-            <span>Testing</span>
-            <span>Deployment</span>
-          </div>
         </div>
       </div>
     </div>
