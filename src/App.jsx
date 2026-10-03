@@ -51,7 +51,7 @@ const skillIcons = {
   MongoDB: <SiMongodb className="skill-icon" />,
   XAMPP: <span className="skill-fallback-icon">X</span>,
 
-  "VS Code": <Vscode className="skill-icon" />,
+ "VS Code": <VscCode className="skill-icon" />,
   Git: <span className="skill-fallback-icon">GIT</span>,
   GitHub: <Github className="skill-icon" />,
 
@@ -120,19 +120,6 @@ const SKILL_GROUPS = [
       "Technical Documentation",
     ],
   },
-];
-
-const SKILLS = [
-  "HTML",
-  "CSS",
-  "Tailwind CSS",
-  "Javascript",
-  "React",
-  "Dart",
-  "Flutter",
-  "Firebase",
-  "VS Code",
-  "Android Studio",
 ];
 
 const EDUCATION = [
