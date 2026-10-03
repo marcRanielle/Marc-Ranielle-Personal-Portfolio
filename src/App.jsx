@@ -122,15 +122,30 @@ const SKILL_GROUPS = [
   },
 ];
 
-const EDUCATION = [
-  {
-    title: "Bachelor of Science in Information Technology",
-    institution: "Pangasinan State University - Alaminos City Campus",
-    years: "2022 - 2026",
-    description:
-      "Building Foundational Skills in Web Development and Database Management.",
-  },
-];
+const Education = () => (
+  <section id="education" className="education" data-aos="fade-up">
+    <div className="container">
+      <SectionTitle>Education</SectionTitle>
+      <div className="edu-list">
+        {EDUCATION.map((edu, index) => (
+          <div
+            key={index}
+            className="edu-card"
+            data-aos="fade-up"
+            data-aos-delay={index * 150} // stagger effect for smooth transition
+          >
+            <div className="edu-header">
+              <h3 className="edu-title">{edu.title}</h3>
+              <p className="edu-years">{edu.years}</p>
+            </div>
+            <p className="edu-school">{edu.institution}</p>
+            <p className="edu-desc">{edu.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 const PROJECTS = [
   {
@@ -538,6 +553,7 @@ const Education = () => (
               <h3 className="edu-title">{edu.title}</h3>
               <p className="edu-years">{edu.years}</p>
             </div>
+            <p className="edu-major">{edu.major}</p>
             <p className="edu-school">{edu.institution}</p>
             <p className="edu-desc">{edu.description}</p>
           </div>
