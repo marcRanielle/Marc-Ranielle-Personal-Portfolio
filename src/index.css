@@ -773,61 +773,116 @@ a {
 
 .education {
   padding: 6rem 0;
+  position: relative;
 }
 
 .edu-list {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .edu-card {
-  background-color: var(--card-bg);
+  position: relative;
+  overflow: hidden;
+  background: var(--terminal-bg);
   padding: 2rem;
-  border-radius: 0;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--terminal-border);
   transition:
-    transform 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.edu-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    var(--terminal-green) 4px
+  );
 }
 
 .edu-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--primary-color);
-  box-shadow: 0 12px 30px rgba(25, 168, 91, 0.1);
+  transform: translateY(-3px);
+  border-color: var(--terminal-green);
+  box-shadow: 8px 8px 0 rgba(101, 255, 138, 0.06);
 }
 
 .edu-header {
+  position: relative;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: flex-start;
   gap: 1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
 }
 
 .edu-title {
-  font-size: 1.5rem;
+  color: var(--terminal-cyan);
+  font-family: monospace;
+  font-size: 1rem;
   font-weight: 700;
+  line-height: 1.5;
 }
 
 .edu-years {
-  color: var(--secondary-color);
+  color: var(--terminal-green);
   font-family: monospace;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+.edu-major {
+  position: relative;
+  color: var(--terminal-green);
+  font-family: monospace;
+  font-size: 0.75rem;
+  margin-bottom: 0.8rem;
 }
 
 .edu-school {
+  position: relative;
+  color: #d7e5da;
   font-family: monospace;
-  font-size: 0.9rem;
-  color: var(--primary-color);
+  font-size: 0.8rem;
   margin-bottom: 1rem;
 }
 
 .edu-desc {
-  color: var(--secondary-color);
+  position: relative;
+  color: #9fb0a5;
+  line-height: 1.7;
+  font-size: 0.9rem;
 }
 
+@media (max-width: 600px) {
+  .education {
+    padding: 4rem 0;
+  }
+
+  .edu-card {
+    padding: 1.3rem;
+  }
+
+  .edu-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .edu-title {
+    font-size: 0.9rem;
+  }
+
+  .edu-years {
+    font-size: 0.65rem;
+  }
+}
 /* =========================================================
    PROJECTS
    ========================================================= */
