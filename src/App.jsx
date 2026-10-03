@@ -774,14 +774,14 @@ const Footer = () => (
 );
 
 const App = () => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
   const toggleTheme = useCallback(() => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
   }, []);
 
   useEffect(() => {
-    document.body.className = theme === "dark" ? "dark-theme" : "light-theme";
+    document.body.className = theme === "light" ? "light-theme" : "dark-theme";
   }, [theme]);
 
   useEffect(() => {
