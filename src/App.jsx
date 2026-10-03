@@ -776,21 +776,21 @@ const Footer = () => (
 const App = () => {
   const [theme, setTheme] = useState("dark");
 
-  const toggleTheme = useCallback(() => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
-  }, []);
+  const [theme, setTheme] = useState(() => {
+  const savedTheme = localStorage.getItem("theme");
+  return savedTheme || "dark";
+});
 
-  useEffect(() => {
-    document.body.className = theme === "light" ? "light-theme" : "dark-theme";
-  }, [theme]);
+const toggleTheme = useCallback(() => {
+  setTheme((prev) => (prev === "light" ? "dark" : "light"));
+}, []);
 
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      once: false,
-      mirror: true,
-    });
-  }, []);
+useEffect(() => {
+  document.body.className =
+    theme === "light" ? "light-theme" : "dark-theme";
+
+  localStorage.setItem("theme", theme);
+}, [theme]);
 
   return (
     <div className="app">
