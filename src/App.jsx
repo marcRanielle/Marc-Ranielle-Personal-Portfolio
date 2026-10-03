@@ -375,6 +375,72 @@ const Skills = () => (
   </section>
 );
 
+const Experience = () => (
+  <section id="experience" className="experience" data-aos="fade-up">
+    <div className="container">
+      <p className="experience-kicker">// WORK_HISTORY.LOG</p>
+
+      <SectionTitle>Experience</SectionTitle>
+
+      <div className="experience-card">
+        <div className="experience-top">
+          <div>
+            <p className="experience-type">INTERNSHIP / TECHNICAL SUPPORT</p>
+            <h3 className="experience-title">
+              Technical Support Intern
+            </h3>
+            <p className="experience-company">
+              Vertex Technologies Corporation
+            </p>
+          </div>
+
+          <span className="experience-date">
+            FEB 2026 — MAY 2026
+          </span>
+        </div>
+
+        <div className="experience-line"></div>
+
+        <div className="experience-body">
+          <p>
+            Gained hands-on experience supporting software implementation,
+            deployment, testing, troubleshooting, and post-deployment
+            verification across workstations and company devices.
+          </p>
+
+          <ul className="experience-list">
+            <li>
+              Implemented and deployed software systems across workstations
+              and devices.
+            </li>
+            <li>
+              Performed system and functional testing, troubleshooting,
+              retesting, and post-deployment verification.
+            </li>
+            <li>
+              Configured and deployed applications on tablets and company
+              devices.
+            </li>
+            <li>
+              Assisted with system audits and documented implementation and
+              troubleshooting activities.
+            </li>
+          </ul>
+
+          <div className="experience-tech">
+            <span>SFA</span>
+            <span>Tailscale</span>
+            <span>Migle</span>
+            <span>VOS</span>
+            <span>Testing</span>
+            <span>Deployment</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 const Education = () => (
   <section id="education" className="education" data-aos="fade-up">
     <div className="container">
@@ -588,6 +654,7 @@ const App = () => {
         <Hero />
         <About />
         <Skills />
+        <Experience />
         <Education />
         <Projects />
         <Contacts />
