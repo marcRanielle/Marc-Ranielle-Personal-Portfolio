@@ -10,13 +10,13 @@ import {
   Download,
   Globe,
 } from "lucide-react";
-import Profile from "./assets/image/img/profile.png";
+import Profile from "./assets/image/img/profile-photo.jpg";
 import Logo from "./assets/image/img/logo.jpg";
 import Project1 from "./assets/image/img/countdown.jpeg";
 import Project2 from "./assets/image/img/qr-generator.jpeg";
 import Project3 from "./assets/image/img/agriconnect-app.png";
 import Project4 from "./assets/image/img/agriconnect-landing.png";
-import Resume from "./assets/Resume.pdf";
+import Resume from "./assets/resume.pdf";
 import emailjs from "emailjs-com";
 import {
   SiHtml5,
