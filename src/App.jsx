@@ -16,6 +16,7 @@ import Project1 from "./assets/image/img/countdown.jpeg";
 import Project2 from "./assets/image/img/qr-generator.jpeg";
 import Project3 from "./assets/image/img/agriconnect-app.png";
 import Project4 from "./assets/image/img/agriconnect-landing.png";
+import Vroom from "./assets/image/img/vroom.webp";
 import Resume from "./assets/resume.pdf";
 import emailjs from "emailjs-com";
 import {
@@ -135,42 +136,39 @@ const EDUCATION = [
 
 const PROJECTS = [
   {
-    title: "MarcNavy Countdown",
+    title: "AgriConnect Mobile Application",
+    type: "Academic Project",
     description:
-      "A web-based timer designed to track and count down to exciting events and special occasions.",
-    tech: ["HTML", "CSS", "Javascript", "Tailwind CSS"],
-    image: Project1,
-    github: "https://github.com/marcRanielle/MarcNavy-Countdown.git",
-    website: "https://marcnavy-countdown.vercel.app/",
+      "A Flutter-based mobile application developed as a capstone project to connect farmers and businesses, supporting product requests, communication, and transactions.",
+    tech: ["Flutter", "Dart", "Firebase"],
+    image: Project4,
+    github:
+      "https://github.com/agriconnectpsu-capstone/Team-Collaboration.git",
+    website: "https://agriconnect-app-six.vercel.app/",
   },
 
   {
-    title: "AgriConnect Landing Page",
+    title: "VRoom - Car Rental Booking System",
+    type: "Academic Project",
     description:
-      "Part of our capstone project, this landing page was designed for the AgriConnect mobile app to showcase its features and highlight its benefits.",
-    tech: ["React", "CSS", "Tailwind CSS", "Javascript"],
-    image: Project4,
-    github: "https://github.com/marcRanielle/AgriConnect-Landing-Page.git",
-    website: "https://agriconnect-app-six.vercel.app/",
+      "A web-based car rental booking system developed to manage vehicle rentals, customer bookings, and related rental transactions.",
+    tech: ["HTML", "CSS", "Javascript", "PHP", "MySQL"],
+    image: Vroom,
+    github:
+      "https://github.com/marcRanielle/VRoom-Car-Rental-Booking-System.git",
+    website: "https://vroomrental.vercel.app/",
   },
+
   {
-    title: "MarcNavy QR Generator",
+    title: "Simple QR Code Generator",
+    type: "Personal Project",
     description:
-      "web-based QR code generator that allows users to generate scannable codes for URLs, text, and email, enhancing accessibility and sharing.",
+      "A web-based QR code generator that allows users to generate scannable codes for URLs, text, and email, enhancing accessibility and sharing.",
     tech: ["React", "Javascript", "CSS", "Tailwind CSS"],
     image: Project2,
-    github: "https://github.com/marcRanielle/MarcNavy-QR-Generator.git",
+    github:
+      "https://github.com/marcRanielle/MarcNavy-QR-Generator.git",
     website: "https://marcnavy-qr-generator.vercel.app/",
-  },
-  {
-    title: "AgriConnect Mobile Application",
-    description:
-      "Developed as a capstone project to directly connect farmers and businesses, facilitating efficient communication and transactions.",
-    tech: ["Flutter", "Dart", "Firebase"],
-    image: Project3,
-    github: "https://github.com/agriconnectpsu-capstone/Team-Collaboration.git",
-    website:
-      "https://drive.google.com/drive/folders/1IbyScQp6oi4TuyUpdQsj7VB-F_cy9Lxy?fbclid=IwY2xjawOfreFleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAEwAAEeDYI2fOLdji69O5kxSuWg9-DJCVcbKeQOKWlZKU6d6c3mEXbQa0qUJPNpVF8_aem_J2EKvahRF_pJpCPW67CepA",
   },
 ];
 
@@ -572,6 +570,7 @@ const Projects = () => {
                 />
               </div>
 
+              <p className="project-type">{project.type}</p>
               <h3 className="project-title">{project.title}</h3>
               <p className="project-desc">{project.description}</p>
 
